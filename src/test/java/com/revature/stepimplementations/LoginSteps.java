@@ -1,5 +1,6 @@
 package com.revature.stepimplementations;
 
+import com.revature.pages.LoginPage;
 import com.revature.runners.BasicRunner;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,20 +18,25 @@ public class LoginSteps {
 
     @When("User types in a username of {string}")
     public void user_types_in_a_username_of(String username) {
-        WebElement usernameInput = BasicRunner.driver.findElement(By.id("username"));
-        usernameInput.sendKeys(username);
+//        WebElement usernameInput = BasicRunner.driver.findElement(By.id("username"));
+//        usernameInput.sendKeys(username);
+
+        BasicRunner.loginPage.usernameInput.sendKeys(username);
     }
 
     @When("User types in a password of {string}")
     public void user_types_in_a_password_of(String password) {
-        WebElement passwordInput = BasicRunner.driver.findElement(By.id("password"));
-        passwordInput.sendKeys(password);
+//        WebElement passwordInput = BasicRunner.driver.findElement(By.id("password"));
+//        passwordInput.sendKeys(password);
+
+        BasicRunner.loginPage.passwordInput.sendKeys(password);
     }
 
     @When("User clicks the login button")
     public void user_clicks_the_login_button() {
-        WebElement loginButton = BasicRunner.driver.findElement(By.xpath("//button[text()='submit']"));
-        loginButton.click();
+//        WebElement loginButton = BasicRunner.driver.findElement(By.xpath("//button[text()='submit']"));
+//        loginButton.click();
+        BasicRunner.loginPage.loginButton.click();
     }
 
     @Then("User should be redirected to the homepage")

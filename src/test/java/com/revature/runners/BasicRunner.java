@@ -1,5 +1,6 @@
 package com.revature.runners;
 
+import com.revature.pages.LoginPage;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -14,12 +15,15 @@ import org.testng.annotations.BeforeMethod;
 public class BasicRunner extends AbstractTestNGCucumberTests {
 
     public static WebDriver driver;
+    public static LoginPage loginPage;
 
     @BeforeMethod // This method will run before each Cucumber scenario
     public void setup() {
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
+
+        loginPage = new LoginPage(driver);
     }
 
     @AfterMethod // This method will run after each Cucumber scenario
